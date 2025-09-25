@@ -1,3 +1,4 @@
+# Stage 1: Create and build the React app
 FROM node:latest AS build
 
 # Set the working directory
@@ -13,7 +14,7 @@ RUN npx create-vite@latest . --template react
 RUN npm install
 
 # Install additional dependencies
-RUN npm install axios tailwindcss postcss autoprefixer daisyui @tensorflow/tfjs dexie  react-filepond filepond filepond-plugin-image-preview filepond-plugin-image-exif-orientation filepond-plugin-image-preview filepond-plugin-file-validate-type --save
+RUN npm install axios tailwindcss postcss autoprefixer daisyui
 
 # Initialize Tailwind CSS
 RUN npx tailwindcss init -p
