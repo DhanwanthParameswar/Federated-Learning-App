@@ -3,6 +3,6 @@
   "private": true,
   "scripts": {
     "build": "npm run build --prefix frontend",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build --prefix frontend && npm run deploy --prefix frontend"
   }
 }
