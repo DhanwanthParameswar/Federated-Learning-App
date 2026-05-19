@@ -7,6 +7,7 @@ import Dialog from "./Dialog";
 import axios from "axios";
 import * as tf from "@tensorflow/tfjs";
 import db from "./db";
+import { MODEL_URL, UPDATE_URL } from "../config";
 import "./App.css";
 
 function App() {
@@ -32,9 +33,7 @@ function App() {
       setShowRmModel(true);
     } catch (error) {
       try {
-        const loadedModel = await tf.loadLayersModel(
-          "https://api.dhanwanth.pp.ua/fla-model/tfjs/model.json"
-        );
+        const loadedModel = await tf.loadLayersModel(MODEL_URL);
         setModel(loadedModel);
         await loadedModel.save("indexeddb://my-model");
         setShowRmModel(true);
@@ -345,7 +344,7 @@ function App() {
       console.log(weightsArray);
       return;
       const response = await axios.post(
-        "https://api.dhanwanth.pp.ua/update",
+        UPDATE_URL,
         weightsJson,
         {
           headers: {
