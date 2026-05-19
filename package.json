@@ -1,0 +1,8 @@
+{
+  "name": "federated-learning-app",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix frontend",
+    "deploy": "npm run build && wrangler deploy"
+  }
+}

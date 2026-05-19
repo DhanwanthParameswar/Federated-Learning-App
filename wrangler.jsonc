@@ -5,10 +5,13 @@
   "observability": {
     "enabled": true
   },
-  "assets": {
-    "directory": "frontend"
+  "build": {
+    "command": "npm ci && npm run build",
+    "cwd": "frontend"
   },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "assets": {
+    "directory": "frontend/dist",
+    "not_found_handling": "single-page-application"
+  },
+  "compatibility_flags": ["nodejs_compat"]
 }
